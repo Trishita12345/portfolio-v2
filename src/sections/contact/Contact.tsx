@@ -11,6 +11,7 @@ import {
     Text,
     ThemeIcon,
     ActionIcon,
+    Grid,
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconBrandGithub, IconBrandLinkedin, IconMail, IconMapPin, IconPhone } from '@tabler/icons-react';
@@ -70,84 +71,89 @@ ${message}
                     <Text size="lg" c="gray.3" maw={600}>
                         Open to full-stack and backend opportunities. Let’s build scalable systems together.
                     </Text>
-                    <Group align="flex-start" grow>
-                        {/* Left: Info */}
-                        <Stack>
-                            <Group>
-                                <ThemeIcon variant="light">
-                                    <IconMail size={16} />
-                                </ThemeIcon>
-                                <Text>trishita.majumder15@gmail.com</Text>
-                            </Group>
+                    <Grid>
+                        {/* FORM FIRST ON MOBILE */}
+                        <Grid.Col span={{ base: 12, md: 6 }} order={{ base: 1, md: 2 }}>
+                            <Stack>
+                                <TextInput
+                                    withAsterisk
+                                    label="Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.currentTarget.value)}
+                                />
 
-                            <Group>
-                                <ThemeIcon variant="light">
-                                    <IconPhone size={16} />
-                                </ThemeIcon>
-                                <Text>+91-7584942147</Text>
-                            </Group>
+                                <TextInput
+                                    withAsterisk
+                                    label="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.currentTarget.value)}
+                                />
 
-                            <Group>
-                                <ThemeIcon variant="light">
-                                    <IconMapPin size={16} />
-                                </ThemeIcon>
-                                <Text>India</Text>
-                            </Group>
-                        </Stack>
+                                <Textarea
+                                    withAsterisk
+                                    label="Message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.currentTarget.value)}
+                                />
 
-                        <Group mt="md">
-                            <ActionIcon
-                                variant="light"
-                                component="a"
-                                href="https://github.com/Trishita12345"
-                                target="_blank"
-                            >
-                                <IconBrandGithub size={18} />
-                            </ActionIcon>
+                                <Button
+                                    disabled={isDisabled}
+                                    onClick={handleWhatsApp}
+                                    variant="gradient"
+                                    gradient={{ from: 'violet', to: 'pink' }}
+                                    fullWidth
+                                >
+                                    Send Message
+                                </Button>
+                            </Stack>
+                        </Grid.Col>
 
-                            <ActionIcon
-                                variant="light"
-                                component="a"
-                                href="https://www.linkedin.com/in/trishita-majumder-642b6a18b/"
-                                target="_blank"
-                            >
-                                <IconBrandLinkedin size={18} />
-                            </ActionIcon>
-                        </Group>
+                        {/* INFO SECOND ON MOBILE */}
+                        <Grid.Col span={{ base: 12, md: 6 }} order={{ base: 2, md: 1 }}>
+                            <Stack>
+                                <Group>
+                                    <ThemeIcon variant="light">
+                                        <IconMail size={16} />
+                                    </ThemeIcon>
+                                    <Text>trishita.majumder15@gmail.com</Text>
+                                </Group>
 
-                        {/* Right: Form */}
-                        <Stack>
-                            <TextInput
-                                withAsterisk
-                                label="Name"
-                                value={name}
-                                onChange={(e) => setName(e.currentTarget.value)}
-                            />
+                                <Group>
+                                    <ThemeIcon variant="light">
+                                        <IconPhone size={16} />
+                                    </ThemeIcon>
+                                    <Text>+91-7584942147</Text>
+                                </Group>
 
-                            <TextInput
-                                withAsterisk
-                                label="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.currentTarget.value)}
-                            />
+                                <Group>
+                                    <ThemeIcon variant="light">
+                                        <IconMapPin size={16} />
+                                    </ThemeIcon>
+                                    <Text>India</Text>
+                                </Group>
 
-                            <Textarea
-                                withAsterisk
-                                label="Message"
-                                value={message}
-                                onChange={(e) => setMessage(e.currentTarget.value)}
-                            />
-                            <Button
-                                disabled={isDisabled}
-                                onClick={handleWhatsApp}
-                                variant="gradient"
-                                gradient={{ from: 'violet', to: 'pink' }}
-                                fullWidth
-                            >
-                                Send Message
-                            </Button>
-                        </Stack>
-                    </Group>
+                                <Group mt="md">
+                                    <ActionIcon
+                                        variant="light"
+                                        component="a"
+                                        href="https://github.com/Trishita12345"
+                                        target="_blank"
+                                    >
+                                        <IconBrandGithub size={18} />
+                                    </ActionIcon>
+
+                                    <ActionIcon
+                                        variant="light"
+                                        component="a"
+                                        href="https://www.linkedin.com/in/trishita-majumder-642b6a18b/"
+                                        target="_blank"
+                                    >
+                                        <IconBrandLinkedin size={18} />
+                                    </ActionIcon>
+                                </Group>
+                            </Stack>
+                        </Grid.Col>
+                    </Grid>
                 </Stack>
             </Container>
         </section>
